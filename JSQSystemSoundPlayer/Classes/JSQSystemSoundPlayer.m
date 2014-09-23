@@ -64,8 +64,9 @@ NSString * const kJSQSystemSoundTypeWAV = @"wav";
 
 
 
-void systemServicesSoundCompletion(SystemSoundID  soundID, void *data)
+static void systemServicesSoundCompletion(SystemSoundID  soundID, void *data)
 {
+	UNUSED(data)
     JSQSystemSoundPlayer *player = [JSQSystemSoundPlayer sharedPlayer];
     
     JSQSystemSoundPlayerCompletionBlock block = [player completionBlockForSoundID:soundID];
@@ -391,6 +392,7 @@ void systemServicesSoundCompletion(SystemSoundID  soundID, void *data)
 
 - (void)didReceiveMemoryWarningNotification:(NSNotification *)notification
 {
+	UNUSED(notification)
     [self unloadSoundIDs];
 }
 
